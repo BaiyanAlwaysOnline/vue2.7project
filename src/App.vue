@@ -1,28 +1,19 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
+<script setup>
+import { ref } from "vue";
+// import LzTable from "jiangzhen-components/src/components/lz-table/index.vue";
+import { LzTable } from "jiangzhen-components";
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+const count = ref(0);
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+function increment() {
+  count.value++;
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <div>
+    <h3>{{ count }}</h3>
+    <button @click="increment">click</button>
+    <LzTable :num="count" />
+  </div>
+</template>
